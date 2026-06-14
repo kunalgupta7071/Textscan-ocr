@@ -1,3 +1,4 @@
+import traceback
 import os
 import io
 import subprocess
@@ -95,10 +96,15 @@ def ocr():
 
         return jsonify({"text": result})
 
-    except pytesseract.TesseractNotFoundError:
-        return jsonify({"error": "Tesseract install nahi hai server pe!"}), 500
-    except Exception as e:
-        return jsonify({"error": f"Error: {str(e)}"}), 500
+  except pytesseract.TesseractNotFoundError as e:
+    print("TESSERACT ERROR:", repr(e))
+    traceback.print_exc()
+    return jsonify({"error": str(e)}), 500
+
+except Exception as e:
+    print("GENERAL ERROR:", repr(e))
+    traceback.print_exc()
+    return jsonify({"error": str(e)}), 500
 
 
 @app.route("/", defaults={"path": ""})
