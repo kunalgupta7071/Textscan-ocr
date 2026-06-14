@@ -105,7 +105,14 @@ def ocr():
         print("GENERAL ERROR:", repr(e))
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
-
+@app.route("/debug")
+def debug():
+    import shutil
+    return {
+        "which_tesseract": shutil.which("tesseract"),
+        "configured_path": pytesseract.pytesseract.tesseract_cmd
+    }
+    
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def serve(path):
