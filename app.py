@@ -94,18 +94,17 @@ def ocr():
         else:
             result = text
 
-        return jsonify({"text": result})
+                      return jsonify({"text": result})
 
-  except pytesseract.TesseractNotFoundError as e:
-    print("TESSERACT ERROR:", repr(e))
-    traceback.print_exc()
-    return jsonify({"error": str(e)}), 500
+    except pytesseract.TesseractNotFoundError as e:
+        print("TESSERACT ERROR:", repr(e))
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
 
-except Exception as e:
-    print("GENERAL ERROR:", repr(e))
-    traceback.print_exc()
-    return jsonify({"error": str(e)}), 500
-
+    except Exception as e:
+        print("GENERAL ERROR:", repr(e))
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
