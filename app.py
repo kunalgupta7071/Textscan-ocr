@@ -94,7 +94,7 @@ def ocr():
         else:
             result = text
 
-                      return jsonify({"text": result})
+        return jsonify({"text": result})
 
     except pytesseract.TesseractNotFoundError as e:
         print("TESSERACT ERROR:", repr(e))
