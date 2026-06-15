@@ -4,4 +4,6 @@ services:
     runtime: python
     buildCommand: "apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-hin && pip install -r requirements.txt"
     startCommand: "python app.py"
-    plan: free
+    envVars:
+      - key: TESSDATA_PREFIX
+        value: /usr/share/tesseract-ocr/5/tessdata
