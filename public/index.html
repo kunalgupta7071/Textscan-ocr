@@ -241,7 +241,7 @@ async function extractText(){
     const reader=new FileReader();
     reader.onload=async (e)=>{
       setProgress(40);
-      const langMap={eng:'eng',hin:'hin'};
+     const langMap={eng:'eng',hin:'hin',both:'eng+hin'};
       const lang=langMap[selectedLang]||'eng';
       const worker=await Tesseract.createWorker(lang);
       setProgress(60);
