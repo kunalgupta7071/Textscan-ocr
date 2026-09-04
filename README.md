@@ -6,7 +6,7 @@ Tesseract OCR + Flask
 
 ## Setup (3 steps)
 
-### Step 1 — Tesseract install karo
+### Step 1 — Tesseract install 
 
 **Windows:**
 - https://github.com/UB-Mannheim/tesseract/wiki se installer download karo
@@ -23,7 +23,7 @@ Tesseract OCR + Flask
 
 ---
 
-### Step 2 — Python packages install karo
+### Step 2 — Python packages install 
   pip install -r requirements.txt
 
 ### Step 3 — Run karo
